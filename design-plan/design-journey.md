@@ -21,148 +21,160 @@ You can use bullet points and lists, or full paragraphs, or a combo, whichever i
 ### Catalog (Milestone 1)
 > What will your catalog website be about? (1 sentence)
 
-TODO: catalog topic
-
+album music catalog
 
 ### _Consumer_ Audience (Milestone 1)
 > Briefly explain your site's _consumer_ audience. Your audience should be specific, but not arbitrarily specific. (1 sentence)
 > Justify why this audience is a **cohesive** group. (1-2 sentences)
 
-TODO: site audience
+The consumer audience are those who are interested in the graphics and aesthetics of music promotion and album covers.
 
-TODO: why is this a _cohesive_ audience?
+This is a cohesive audience because they are an unique group who are interested in art specifically in the field of music.
 
 
 ### _Consumer_ Audience Goals (Milestone 1)
 > Document your _consumer_ audience's goals for using this catalog website.
 > List each goal below. There is no specific number of goals required for this, but you need enough to do the job (Hint: It's more than 1. But probably not more than 3.)
-> **Hint:** Users will be able to view all entries in the catalog and insert new entries into the catalog. The audience's goals should probably relate to these activities.
+> **Hint:** Hint: Users will be able to view all entries in the catalog and the details for a catalog entry. The audience's goals should probably relate to these activities.
 
-Goal 1: TODO: brief title
-
-- **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
-- **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale  (1-2 sentences)
-
-Goal 2: TODO: brief title
+Goal 1: Users should be able to filter catalog entries by a tag which filters the genres of the music of the album
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - I will meet this goal by creating an user-friendly filter button that makes it easy for the consumer users to find and filter for different genres,
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale (1-2 sentences)
+  - This is important so that the user can easily find the albums associated with the genres they are looking for.
 
-Goal 3: TODO: brief title
+Goal 2: Users should be able to view all entries of album covers in the catalog at once
 
-TODO: design ideas and rationale
+- **Design Ideas and Choices** _How will you meet those goals in your design?_
+  - There will be a matrix of entries for the catalog with each album cover as a thumbnail.
+- **Rationale & Additional Notes** _Justify your decisions; additional notes._
+  - This makes it easy for the user to view all the different album covers at first glance and able to find which ones entices them iin an orderly fashion.
 
+Goal 3: Users should be able to view a detailed version of an album cover on a separate page that lists more information about both the album and the artwork
 
-TODO: add as many goals as needed
+- **Design Ideas and Choices** _How will you meet those goals in your design?_
+  - I will meet this goal by linking each thumbnail to a detailed page where there are detailed information about each album.
+- **Rationale & Additional Notes** _Justify your decisions; additional notes._
+  - This makes sense since the user can easily access the information by pressing the image of the album cover.
 
 
 ### _Consumer_ Audience Device (Milestone 1)
 > How will your _consumer_ audience access this website? From a narrow (phone) or wide (laptop) device?
 > Justify your decision. (1 sentence)
 
-TODO: audience device
+The consumer audience will access this website from a wide device.
 
-TODO: audience device justification
+I think from an artistic perspective, the album covers look better on a wider screen and is more easy for viewing
 
 
 ### _Consumer_ Persona (Milestone 1)
 > Use the goals you identified above to develop a persona of your site's _consumer_ audience.
 > Your persona must have a name and a face. The face can be a photo of a face or a drawing, etc.
 
-TODO: persona's face
+ ![jenny](/design-plan/jenny.jpg)
 
-TODO: persona name
+Jenny
 
 **Factors that Influence Behavior:**
 
-TODO: summary of the persona's factors that influence their behavior (1-2 bullet points)
+- Type of music Jenny is interested in
+- Accesibility to the details of albums Jenny is finding
 
 **Goals:**
 
-TODO: summary of persona's goals (1-2 bullet points)
+- Easy access to the album covers of the type of music genres Jenny is interest in
+- To see beautiful graphics of album covers
 
 **Obstacles:**
 
-TODO: summary of persona's obstacles (1-2 bullet points)
+- Sorting through the albums to find the genre Jenny is interested in
+- Finding more details and information of the albums (artist of the album and other information) Jenny finds interesting at first glance
 
 **Desires:**
 
-TODO: summary of persona's desires (1-2 bullet points)
+- Jenny wants to see more beautifully designed album covers of different music genres
+- Jenny would like to learn more about album covers recommended by others
 
 
 ### _Administrator_ Audience (Milestone 1)
 > Briefly explain your site's _administrator_ audience. Your audience should be specific, but not arbitrarily specific. (1 sentence)
 > Justify why this audience is a **cohesive** group. (1-2 sentences)
 
-TODO: site audience
+The administrator audience are those who are interested in contributing to the catalog which are most likely the creators of the album covers.
 
-TODO: why is this a _cohesive_ audience?
-
+This is a cohesive audience because the creators of the album covers are likely to want to share their works in a platform for others to see.
 
 ### _Administrator_ Audience Goals (Milestone 1)
 > Document your _administrator_ audience's goals for using this catalog website.
 > List each goal below. There is no specific number of goals required for this, but you need enough to do the job (Hint: It's more than 1. But probably not more than 3.)
 > **Hint:** Users will be able to view all entries in the catalog and insert new entries into the catalog. The audience's goals should probably relate to these activities.
 
-Goal 1: TODO: brief title
+Goal 1: Administrator users should be able to insert new entries and delete entries.
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - There will be an insert form implemeneted when the administrator user is logged in so they can add entries and there will be a button for each catalog that shows up by the thumbnail if you are logged in so the administrator can delete the entry.
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale  (1-2 sentences)
+  - This important so that only administrators are able to delete entries and not just any user.
 
-Goal 2: TODO: brief title
+Goal 2: Administrative users should be able to upload one media file for the entry
 
 - **Design Ideas and Choices** _How will you meet those goals in your design?_
-  - TODO: design ideas (1-2 sentences)
+  - There will be an insert form implemeneted when the administrator user is logged in.
 - **Rationale & Additional Notes** _Justify your decisions; additional notes._
-  - TODO: rationale (1-2 sentences)
+  - This important so that only creators are able to insert their works into the catalog. It is also easy for the creators to upload and showcase their work by just filling out a form.
 
-Goal 3: TODO: brief title
-
-TODO: design ideas and rationale
-
-
-TODO: add as many goals as needed
+Goal 3: Administrative users should be able to assign multiple tags to an entry upon creation
+- **Design Ideas and Choices** _How will you meet those goals in your design?_
+  - There will be an insert form implemeneted when the administrator user is logged in which will allow them to insert tags.
+- **Rationale & Additional Notes** _Justify your decisions; additional notes._
+  - The administrator can add tags to entries they upload which will make it easier for the consumer users to filter.
 
 
 ### _Administrator_ Persona (Milestone 1)
 > Use the goals you identified above to develop a persona of your site's _administrator_ audience.
 > Your persona must have a name and a face. The face can be a photo of a face or a drawing, etc.
 
-TODO: persona's face
+ ![cassie](/design-plan/cassie.jpg)
 
-TODO: persona name
+Cassie
 
 **Factors that Influence Behavior:**
 
-TODO: summary of the persona's factors that influence their behavior (1-2 bullet points)
+- Exposure to a wider audience
+- The search for more inspiring creators
 
 **Goals:**
 
-TODO: summary of persona's goals (1-2 bullet points)
+- Showcase Cassie's works on album covers
+- Joining an interactive platform and sharing inspiration for other artist's
 
 **Obstacles:**
 
-TODO: summary of persona's obstacles (1-2 bullet points)
+- Difficulty in finding a platform to share Cassie's highlighted works besides from her individual sites/social media
+- Finding other artists that also design album covers and searching for inspiration
 
 **Desires:**
 
-TODO: summary of persona's desires (1-2 bullet points)
-
+- Able to easily insert Cassie's works into the catalog
+- For other people to be able to view Cassies's works and perhaps have contact information for those who are interested in her works
 
 ### Catalog Data (Milestone 1)
 > Using your personas, identify the data you need to include in the catalog for your site's audiences.
 > Justify why this data aligns with your persona's goals. (1 sentence)
 
-TODO: list the data your persona will need to effectively use the catalog
+Album Name
+Artist Name
+Album Cover Designer
+Album Year Released
+Album Genre
+Album Cover Illustrations
+Description
+Designer Contact Information
+Insert Form
 
-TODO: Justify why this data aids the persona with their goals.
 
+These are important data to help Cassie reach a wider audience and being able to leave their contact information. There is also an insert form for her to insert more of her works if she wants to share more recent works. The audience is also able to know which album for which singer she designed the cover for.
 
 
 ### Site Design (Milestone 1)
@@ -177,14 +189,15 @@ TODO: Justify why this data aids the persona with their goals.
 > Provide a brief explanation _underneath_ each sketch. (1 sentence)
 > **Refer to your persona by name in each explanation.**
 
-TODO: sketch(es) + explanation
+ ![sketch](/design-plan/sketch.jpg)
+For the catalog home page, it is a matrix style catalog with thumbnails that lead to a details page with more information of the album cover thumbnail that was pressed by Jenny. Jenny can also filter the album covers by genre with the filter button.
 
+Moreover, for Cassie, there is an insert form that can be accessed when logged in and found by pressing the hamburger menu.
 
 ### Catalog Design Patterns (Milestone 1)
 > Explain how you used design patterns in your site's design. (1-2 sentences)
 
-TODO: design pattern explanation
-
+I used design patterns of alignment through the matrix of thumbnails. I also used responsivenes design through the hamburger menu.
 
 ## Implementation Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 
@@ -193,27 +206,44 @@ TODO: design pattern explanation
 > A bulleted list is probably the simplest way to do this.
 > Make sure you include constraints for each field.
 
-Table: TODO: table name
+-- Albums --
+CREATE TABLE albums (
+    id INTEGER NOT NULL UNIQUE,
+    name TEXT NOT NULL,
+    artist TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    PRIMARY KEY(id AUTOINCREMENT)
+);
 
-- field1: TYPE {constraints...},
-- field2...
-- TODO: table fields + type + constraints
+-- Album tags (connects types of genre with the album entry) --
+CREATE TABLE album_tags (
+    id INTEGER NOT NULL UNIQUE,
+    album_id INTEGER NOT NULL,
+    tags_id INTEGER NOT NULL,
+    PRIMARY KEY(id AUTOINCREMENT) FOREIGN KEY (album_id) REFERENCES albums(id)
+    FOREIGN KEY (tags_id) REFERENCES tags(id)
+);
+
+-- Genre tags (all the different genres) --
+CREATE TABLE tags (
+    id INTEGER NOT NULL UNIQUE,
+    genre TEXT NOT NULL,
+    PRIMARY KEY(id AUTOINCREMENT)
+);
 
 
 ### Database Query Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 > Plan _all_ of your database queries.
 > You may use natural language, pseudocode, or SQL.
 
-```
-TODO: Plan a query
-```
+  $result = exec_sql_query(
+        $db,
+        "SELECT albums.name AS 'albums.name', tags.genre AS 'tags.genre'
 
-```
-TODO: Plan another query
-```
-
-TODO: ...
-
+        FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
+        INNER JOIN tags ON (album_tags.tags_id = tags.id);"
+      );
+      $records = $result->fetchAll();
 
 ## Complete & Polished Website (Final Submission)
 
