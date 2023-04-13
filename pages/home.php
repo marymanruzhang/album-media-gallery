@@ -1,8 +1,9 @@
 <?php
     // query DB
+
       $result = exec_sql_query(
         $db,
-        "SELECT albums.name AS 'albums.name', tags.genre AS 'tags.genre'
+        "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
 
         FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
         INNER JOIN tags ON (album_tags.tags_id = tags.id);"
@@ -30,14 +31,20 @@
         <li class="entry">
           <div class="entry-header">
             <h3><?php echo htmlspecialchars($record['albums.name']); ?></h3>
-            <picture>
+            <!-- <picture>
               <img src="../public/uploads/placeholder.jpeg" alt="placeholder">
-            </picture>
-            <div class="entry-album-tags">
-              <?php echo htmlspecialchars($record['album_tag.genre']); ?>
+            </picture> -->
+            <form class="edit center-flex" method="get" action="/details">
+                <input type = "hidden" name = "record" value = "<?php echo htmlspecialchars($record['albums.id']); ?>">
+                <button class="center-flex" type="submit" aria-label="update <?php echo htmlspecialchars($record['albums.name']); ?> " title="Details for <?php echo htmlspecialchars($record['albums.name']); ?> grade">
+                  <img src="../public/uploads/placeholder.jpeg" alt="placeholder" />
+                </button>
+           </form>
+            <div class="entry-tags-genre">
+              <?php echo htmlspecialchars($record['tags.genre']); ?>
             </div>
           </div>
-          <p class="entry-genre-tags"><?php echo htmlspecialchars($record['tags.artist']); ?></p>
+          <p class="entry-albums-artist"><?php echo htmlspecialchars($record['albums.artist']); ?></p>
         </li>
       <?php } ?>
     </ul>

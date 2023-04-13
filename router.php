@@ -5,7 +5,8 @@ include_once('includes/db.php');
 $db = init_sqlite_db('db/site.sqlite', 'db/init.sql');
 
 const ROUTES = array(
-  '/' => 'pages/home.php'
+  '/' => 'pages/home.php',
+  '/details'=> 'pages/details.php'
 );
 
 function match_static($uri)
