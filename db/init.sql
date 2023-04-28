@@ -34,42 +34,40 @@ INSERT INTO
 VALUES
     (5, 'Savage (EP)', 'Aespa', 2021, 'https://en.wikipedia.org/wiki/Savage_%28EP%29#/media/File:Aespa_%E2%80%93_Savage.jpg', 'png');
 
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (6, 'OMG', 'NewJeans', 2022, 'https://en.wikipedia.org/wiki/OMG_(single_album)', 'png');
 
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (7, "If I Can't Have Love, I Want Power", 'Halsey', 2021, 'https://en.wikipedia.org/wiki/If_I_Can%27t_Have_Love,_I_Want_Power', 'png');
 
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (6, '30', 'Adele', 2021);
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (8, 'These Two Windows', 'Alec Benjamin', 2020 , 'https://en.wikipedia.org/wiki/These_Two_Windows', 'png');
 
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (7, '19', 'Adele', 2008);
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (9, 'Thank you Next', 'Ariana Grande', 2019, 'https://en.wikipedia.org/wiki/Thank_U,_Next', 'png');
 
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (8, 'Narrated for You', 'Alec Benjamin', 2018);
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (10, 'Lowlife Princess: Noir', 'BiBi', 2022, 'https://en.wikipedia.org/wiki/Lowlife_Princess:_Noir', 'png');
 
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (9, 'Thank you Next', 'Ariana Grande', 2019);
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (11, 'When we all fall asleep, where do we go?', 'Billie Eilish', 2019, 'https://en.wikipedia.org/wiki/When_We_All_Fall_Asleep,_Where_Do_We_Go%3F', 'png');
 
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (10, 'Lowlife Princess: Noir', 'BiBi', 2022);
-
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (11, 'When we all fall asleep, where do we go?', 'Billie Eilish', 2019);
-
--- INSERT INTO
---     albums(id, name, artist, year)
--- VALUES
---     (12, '24k', 'Bruno Mars', 2016);
+INSERT INTO
+    albums(id, name, artist, year, source, ext)
+VALUES
+    (12,'Beerbongs & Bentleys', 'Post Malone', 2018, "https://en.wikipedia.org/wiki/Beerbongs_%26_Bentleys", 'png');
 
 -- Album tags (connects types of genre with the album entry) --
 CREATE TABLE album_tags (
@@ -105,26 +103,40 @@ INSERT INTO
 VALUES
     (5, 5, 5);
 
--- INSERT INTO
---     album_tags (id, album_id, tags_id)
--- VALUES
---     (6, 6, 6);
--- INSERT INTO
---     album_tags (id, album_id, tags_id)
--- VALUES
---     (7, 7, 7);
--- INSERT INTO
---     album_tags (id, album_id, tags_id)
--- VALUES
---     (8, 8, 8);
--- INSERT INTO
---     album_tags (id, album_id, tags_id)
--- VALUES
---     (9, 9, 9);
--- INSERT INTO
---     album_tags (id, album_id, tags_id)
--- VALUES
---     (10, 10, 10);
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (6, 6, 6);
+
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (7, 7, 7);
+
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (8, 8, 8);
+
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (9, 9, 9);
+
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (10, 10, 10);
+
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (11, 11, 11);
+
+INSERT INTO
+    album_tags (id, album_id, tags_id)
+VALUES
+    (12, 12, 12);
 
 -- Genre tags (all the different genres) --
 CREATE TABLE tags (
@@ -166,23 +178,32 @@ VALUES
 INSERT INTO
     tags (id, genre)
 VALUES
-    (7, 'Alternative Pop');
+    (7, 'Alternative Rock');
 
 INSERT INTO
     tags (id, genre)
 VALUES
-    (8, 'Alternative Pop');
+    (8, 'Pop');
 
 INSERT INTO
     tags (id, genre)
 VALUES
-    (9, 'Alternative Pop');
+    (9, 'Pop');
 
 INSERT INTO
     tags (id, genre)
 VALUES
-    (10, 'Alternative Pop');
+    (10, 'R&B');
 
+INSERT INTO
+    tags (id, genre)
+VALUES
+    (11, 'Pop');
+
+INSERT INTO
+    tags (id, genre)
+VALUES
+    (12, 'Hip Hop');
 
 --- Users ---
 CREATE TABLE users (

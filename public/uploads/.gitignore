@@ -3,12 +3,16 @@
 !.gitignore
 
 # TODO: except do not ignore the "seed" images for the "entries" table.
-!/entries/
-!/entries/1.png
-!/entries/2.jpg
-!/entries/3.pdf
-!/entries/4.svg
-!/entries/5.png
-!/entries/6.jpg
-!/entries/7.pdf
-!/entries/8.svg
+!/albums/
+!/albums/1.png
+!/albums/2.png
+!/albums/3.png
+!/albums/4.png
+!/albums/5.png
+!/albums/6.png
+!/albums/7.png
+!/albums/8.png
+!/albums/9.png
+!/albums/10.png
+!/albums/11.png
+!/albums/12.png
