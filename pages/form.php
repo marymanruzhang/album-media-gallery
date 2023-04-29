@@ -1,5 +1,5 @@
 <?php
-$title = 'Clipart Plop Box';
+$title = 'Album Cover Upload Form';
 $nav_plopbox_class = 'active_page';
 
 // Access Control - Only logged in users may upload
@@ -32,7 +32,7 @@ if (is_user_logged_in()) {
     }
 
     // get the info about the uploaded files.
-    $upload = $_FILES['png-file'];
+    $upload = $_FILES['file'];
 
     // Assume the form is valid...
     $form_valid = True;
@@ -43,18 +43,19 @@ if (is_user_logged_in()) {
 
       // Get the name of the uploaded file without any path
       $upload_albums_name = basename($upload['name']);
-      $upload_albums_artist = basename($upload['artist']);
-      $upload_albums_year = basename($upload['year']);
-      $upload_tags_genre = basename($upload['genre']);
+      // $upload_albums_artist = basename($upload['artist']);
+      // $upload_albums_year = basename($upload['year']);
+      // $upload_tags_genre = basename($upload['genre']);
 
       // Get the file extension of the uploaded file and convert to lowercase for consistency in DB
       $upload_albums_ext = strtolower(pathinfo($upload_albums_name, PATHINFO_EXTENSION));
 
       // This site only accepts SVG files!
-      if (!in_array($upload_albums_ext, array('png'))) {
+      if (!in_array($upload_albums_ext, array('png', 'jpg', 'jpeg'))) {
         $form_valid = False;
         $upload_feedback['general_error'] = True;
       }
+
     } else if (($upload['error'] == UPLOAD_ERR_INI_SIZE) || ($upload['error'] == UPLOAD_ERR_FORM_SIZE)) {
       // file was too big, let's try again
       $form_valid = False;
@@ -69,15 +70,18 @@ if (is_user_logged_in()) {
       // insert upload into DB
       $result = exec_sql_query(
         $db,
-        "INSERT INTO albums (name, artist, year, source, ext) VALUES (:name, :artist, :year, :source, :ext)",
+        "INSERT INTO albums (name, artist, year, source, ext) VALUES (:name, :artist, :year, :source, :ext);
+        INSERT INTO tags (genre) VALUES (:genre);",
         array(
           ':name' => $upload_albums_name,
           ':artist' => $upload_albums_artist,
           ':year' => $upload_albums_year,
           ':source' => $upload_albums_source,
-          ':ext' => $upload_albums_ext
+          ':ext' => $upload_albums_ext,
+          ':genre' => $upload_tags_genre
         )
       );
+
 
       if ($result) {
         // We successfully inserted the record into the database, now we need to
@@ -103,7 +107,7 @@ if (is_user_logged_in()) {
   }
 }
 
-// query the database for the clipart records
+// query the database for the album records
 $result = exec_sql_query(
     $db,
     "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
@@ -116,68 +120,103 @@ $result = exec_sql_query(
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title><?php echo $title; ?> - INFO 2300</title>
+  <title><?php echo $title; ?> Add an Album Entry</title>
 
   <link rel="stylesheet" type="text/css" href="/public/styles/site.css" media="all">
 </head>
 
+
 <body>
   <?php include 'includes/header.php'; ?>
-
   <main class="form">
 
-    <section class="gallery">
+    <section class="upload-form">
       <h2><?php echo $title; ?></h2>
     <section class="upload" id="upload">
 
       <?php
       // Access Controls - Interface: Only logged in users may upload
       if (is_user_logged_in()) { ?>
+        <?php if(!$show_confirmation) { ?>
+          <h2>Please feel free to add your album entry!</h2>
 
-        <h2>Upload Clipart</h2>
+          <form action="/form" method="post" enctype="multipart/form-data">
 
-        <form action="/form" method="post" enctype="multipart/form-data">
+            <!-- MAX_FILE_SIZE must precede the file input field -->
 
-          <!-- MAX_FILE_SIZE must precede the file input field -->
+            <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>">
 
-          <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>">
+            <?php if ($upload_feedback['too_large']) { ?>
+              <p class="feedback">We're sorry. The file failed to upload because it was too big. Please select a file that&apos;s no larger than 1MB.</p>
+            <?php } ?>
 
-          <?php if ($upload_feedback['too_large']) { ?>
-            <p class="feedback">We're sorry. The file failed to upload because it was too big. Please select a file that&apos;s no larger than 1MB.</p>
+            <?php if ($upload_feedback['general_error']) { ?>
+              <p class="feedback">We're sorry. Something went wrong. Please select an PNG file to upload.</p>
+            <?php } ?>
+
+            <div class="label-input">
+              <label for="upload-file">Album Cover File:</label>
+              <!-- This site only accepts PNG and JPG files! -->
+              <input id="upload-file" type="file" name="file" accept=".png, .jpg, .jpeg">
+
+            </div>
+
+            <div class="label-input">
+              <label for="upload_albums_name">Album Name:</label>
+              <input id='upload_albums_name' type="text" name="source" placeholder="Name of the Album">
+            </div>
+
+            <div class="label-input">
+              <label for="upload_albums_artist">Artist:</label>
+              <input id='upload_albums_artist' type="text" name="artist" placeholder="Artist of the Album">
+            </div>
+
+            <div class="label-input">
+              <label for="upload_albums_year">Year:</label>
+              <input id='upload_albums_year' type="text" name="year" placeholder="Album Release Year">
+            </div>
+
+            <div class="label-input">
+              <label for="upload_albums_source">Source URL:</label>
+              <input id='upload_albums_source' type="url" name="source" placeholder="URL where cover image is found">
+            </div>
+
+            <div class="label-input">
+              <label for="upload_tags_genre">Genre</label>
+              <input id='upload_tags_genre' type="text" name="genre" placeholder="Genre of Album">
+            </div>
+
+          <!-- <p class="feedback <?php echo $form_feedback_classes['genre']; ?>">Please select a music genre.</p>
+          <div class="form-group label-input" role="group" aria-labelledby="genre_head">
+          <select name = "dropdown">
+            <option value = "genre" selected><?php echo htmlspecialchars($record['tags.genre']); ?></option>
+         </select> -->
+
+            <div class="align-right">
+              <button type="submit" name="upload">Upload</button>
+            </div>
+            </form>
+          <?php } else { ?>
+
+            <!-- Show the form or the confirmation message. -->
+              <section>
+                <h2>Thanks for your entry!</h2>
+
+                <p><a href="/">Go View your Entry in our Display</a> or submit another entry <a href="/form"></p>
+              </section>
           <?php } ?>
 
-          <?php if ($upload_feedback['general_error']) { ?>
-            <p class="feedback">We're sorry. Something went wrong. Please select an SVG file to upload.</p>
-          <?php } ?>
-
-          <div class="label-input">
-            <label for="upload-file">PNG File:</label>
-            <!-- This site only accepts SVG files! -->
-            <input id="upload-file" type="file" name="png-file" accept=".png">
-          </div>
-
-          <div class="label-input">
-            <label for="upload-source" class="optional">Source URL:</label>
-            <input id='upload-source' type="url" name="source" placeholder="URL where found. (optional)">
-          </div>
-
-          <div class="align-right">
-            <button type="submit" name="upload">Upload</button>
-          </div>
-
-        </form>
       <?php } else {
         // user is not logged in. show login form
       ?>
 
         <h2>Sign In</h2>
 
-        <p>Please login to upload clipart to Plop Box</p>
+        <p>Please login to upload album covers to the Album Cover Display Series</p>
 
       <?php echo login_form('/form#upload', $session_messages);
       } ?>

@@ -1,4 +1,5 @@
 <?php
+$title = ' - More Details';
       // if we have a GET request, then show the user the form
       // get the record id for the grade
       $get_id = ($_GET['record'] == '' ? NULL : (int)$_GET['record']); // untrusted
@@ -31,20 +32,21 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title><?php echo $title; ?></title>
 
   <link rel="stylesheet" type="text/css" href="/public/styles/site.css" media="all">
-
-  <title>Album Media Catalog</title>
 </head>
 
 <body>
-  <h3>Details</h3>
-
+<?php include 'includes/header.php'; ?>
+<div class="spacer">
+  </div>
   <main class="details">
+
 
   <?php if ($record == null) { ?>
 
@@ -64,7 +66,7 @@
               // );
               $albums_result = exec_sql_query(
                 $db,
-                "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
+                "SELECT albums.id AS 'albums.id', albums.name AS 'albums.name', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
 
                 FROM album_tags JOIN tags ON (album_tags.tags_id = tags.id)
                 JOIN albums ON (album_tags.album_id = albums.id) WHERE (album_id = :id);",
@@ -76,12 +78,11 @@
 
               $albums_records = $albums_result->fetchAll()[0];
 
-
               // echo htmlspecialchars($record['album_tags.album_id']);
               ?>
             </td>
             <td>
-              <?php echo htmlspecialchars($record['albums.name']); ?>
+              <h3> Albums Details about <?php echo htmlspecialchars($record['albums.name']); ?> </h3>
             </td>
             <td>
               <?php echo htmlspecialchars($record['tags.genre']); ?>
@@ -98,7 +99,7 @@
 
       <p></p>
 
-      <p>Return to the <a href="/">album display</a>.
+      <p>Return to the full <a href="/">album display</a>.
 
 
       <?php } ?>

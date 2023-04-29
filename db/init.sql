@@ -173,7 +173,7 @@ VALUES
 INSERT INTO
     tags (id, genre)
 VALUES
-    (6, 'K-pop');
+    (6, 'K-Pop');
 
 INSERT INTO
     tags (id, genre)
@@ -233,9 +233,9 @@ INSERT INTO
 VALUES
   (
     2,
-    'Sharon Jeong',
-    'sharon@example.com',
-    'sharon',
+    'Mary Zhang',
+    'mz479@cornell.edu',
+    'mary',
     '$2y$10$QtCybkpkzh7x5VN11APHned4J8fu78.eFXlyAMmahuAaNcbwZ7FH.' -- monkey
   );
 
@@ -259,6 +259,7 @@ INSERT INTO
   groups (id, name)
 VALUES
   (1, 'admin');
+
 
 --- Group Membership ---
 CREATE TABLE user_groups (
