@@ -50,9 +50,9 @@ span {
 .side .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
+  right: 0px;
   font-size: 36px;
-  margin-right: 50px;
+  margin-right: 20px;
 }
 
 #content {

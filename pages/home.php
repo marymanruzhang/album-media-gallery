@@ -13,9 +13,8 @@
   } else {
     $result = exec_sql_query(
       $db,
-      "SELECT albums.name AS 'albums.name', albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
-      FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
-      INNER JOIN tags ON (album_tags.tags_id = tags.id);"
+      "SELECT albums.name AS 'albums.name', albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year'
+      FROM albums;"
     );
   }
   $records = $result->fetchAll();

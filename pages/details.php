@@ -1,5 +1,5 @@
 <?php
-$title = ' - More Details';
+$title = ': More Details';
       // if we have a GET request, then show the user the form
       // get the record id for the grade
       $get_id = ($_GET['record'] == '' ? NULL : (int)$_GET['record']); // untrusted
@@ -12,7 +12,7 @@ $title = ' - More Details';
       if ($record_id != NULL) {
         $records = exec_sql_query(
           $db,
-          "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
+          "SELECT albums.id AS 'albums.id', albums.name AS 'albums.name',albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
 
           FROM album_tags JOIN tags ON (album_tags.tags_id = tags.id)
           JOIN albums ON (album_tags.album_id = albums.id) WHERE (album_id = :id);",
@@ -81,25 +81,52 @@ $title = ' - More Details';
               // echo htmlspecialchars($record['album_tags.album_id']);
               ?>
             </td>
-            <td>
-              <h3> Albums Details about <?php echo htmlspecialchars($record['albums.name']); ?> </h3>
-            </td>
-            <td>
-              <?php echo htmlspecialchars($record['tags.genre']); ?>
-            </td>
-            <td>
-              <?php echo htmlspecialchars($record['albums.year']); ?>
-            </td>
-            <td>
-              <?php echo htmlspecialchars($record['albums.artist']); ?>
-            </td>
-      </tr>
 
-      <p>(<?php echo htmlspecialchars($record_id); ?>).</p>
+      <h3> Albums Details about <?php echo htmlspecialchars($record['albums.name']); ?> </h3>
 
+      <p>Album Name: <?php echo htmlspecialchars($record['albums.name']); ?></p>
+
+      <p>Album Artist: <?php echo htmlspecialchars($record['albums.artist']); ?></p>
+
+      <p>Album Genre: <?php echo htmlspecialchars($record['tags.genre']); ?></p>
+
+      <p>Year Released: <?php echo htmlspecialchars($record['albums.year']); ?><p>
+
+
+
+
+
+
+      <?php
+          // Only show the clipart gallery if we have records to display.
+        if (count($records) > 0) { ?>
+        <ul>
+          <?php foreach ($records as $record) {
+            $img_url = '/public/uploads/albums/' . $record_id . '.png';
+            ?>
+
+                    <img src="<?php echo htmlspecialchars($img_url); ?>" alt="<?php echo htmlspecialchars($record['albums.name']); ?>">
+                    <!-- </button> -->
+              </form>
+                <!-- <div class="entry-tags-genre">
+                  <?php echo htmlspecialchars($record['tags.genre']); ?>
+                </div>
+              </div>
+              <p class="entry-albums-artist"><?php echo htmlspecialchars($record['albums.artist']); ?></p> -->
+              <?php
+              } ?>
+            </ul>
+            <?php
+          } else { ?>
+            <p>Your album cover selection is <em>empty</em>. Try uploading some album covers.</p>
+          <?php } ?>
+
+        </section>
+    </main>
+    </div>
       <p></p>
 
-      <p>Return to the full <a href="/">album display</a>.
+      <p>Return to the full <a href="/">album display</a>.</p>
 
 
       <?php } ?>
