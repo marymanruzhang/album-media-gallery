@@ -32,7 +32,10 @@
 </head>
 
 <body>
-  <?php include 'includes/header.php'; ?>
+  <div class = "home">
+  <!-- Use filter button to open the sidenav / made by myself-->
+  <?php include 'includes/header-home.php'; ?>
+
 
   <!-- display genre filter buttons -->
   <div id = "filter" class="side">
@@ -58,10 +61,6 @@
             // echo htmlspecialchars($img_url);
             ?>
             <li>
-
-                <!-- <picture>
-                  <img src="../public/uploads/placeholder.jpeg" alt="placeholder">
-                </picture> -->
                 <form class="entry-form" method="get" action="/details">
                 <input type = "hidden" name = "record" value = "<?php echo htmlspecialchars($record['albums.id']); ?>">
                   <button class="thumbnail" type="submit" ; ?>
@@ -88,5 +87,6 @@
     <!-- javascript -->
     <script src = "/public/scripts/jquery-3.6.1.js"></script>
     <script src = "/public/scripts/filter.js"></script>
+    </div>
 </body>
 </html>

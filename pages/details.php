@@ -43,27 +43,18 @@ $title = ': More Details';
 
 <body>
 <?php include 'includes/header.php'; ?>
-<div class="spacer">
-  </div>
   <main class="details">
 
 
   <?php if ($record == null) { ?>
 
-      <p>No record found. Return to the <a href="/">album display</a>.</p>
+      <p>No album found. Return to the <a href="/">album display</a>.</p>
 
   <?php } else { ?>
 
       <tr>
             <td>
               <?php
-              // $courses_result = exec_sql_query(
-              //   $db,
-              //   "SELECT * FROM albums WHERE (id = :id);",
-              //   array(
-              //     ':id' => $get_id
-              //   )
-              // );
               $albums_result = exec_sql_query(
                 $db,
                 "SELECT albums.id AS 'albums.id', albums.name AS 'albums.name', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
@@ -77,11 +68,10 @@ $title = ': More Details';
               );
 
               $albums_records = $albums_result->fetchAll()[0];
-
-              // echo htmlspecialchars($record['album_tags.album_id']);
               ?>
             </td>
 
+    <div class = "text">
       <h3> Albums Details about <?php echo htmlspecialchars($record['albums.name']); ?> </h3>
 
       <p>Album Name: <?php echo htmlspecialchars($record['albums.name']); ?></p>
@@ -91,7 +81,7 @@ $title = ': More Details';
       <p>Album Genre: <?php echo htmlspecialchars($record['tags.genre']); ?></p>
 
       <p>Year Released: <?php echo htmlspecialchars($record['albums.year']); ?><p>
-
+    </div>
 
 
 

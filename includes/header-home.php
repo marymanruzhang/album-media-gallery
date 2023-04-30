@@ -23,6 +23,8 @@
         </form>
     <?php } ?>
 
+    <!-- Use filter button to open the sidenav / made by myself-->
+    <span onclick="openNav()"><img src="../public/images/filter.png" alt="filter"></span>
 
     </ul>
   </nav>

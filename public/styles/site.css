@@ -13,13 +13,7 @@ button {
   background: none;
 }
 
-/* filter icon */
-span {
-  top: 0; /* Stay at the top */
-  float: right;
-  margin-top: 5px;
-  margin-right: 50px;
-}
+
 
 /* The filter for tags */
 /* The side navigation menu */
@@ -56,6 +50,11 @@ span {
 }
 
 #content {
+  transition: margin-right .5s;
+  padding: 20px;
+}
+
+#nav {
   transition: margin-right .5s;
   padding: 20px;
 }
@@ -121,6 +120,7 @@ header #title {
 
 body {
   margin-top: 140px;
+  /* created image myself but inspired from pinterest */
   background-image: url("/public/images/bg.JPG");
   background-color:rgba(0, 0, 0, 0.406);
   background-size: cover;
@@ -252,4 +252,11 @@ main.entry .gallery ul {
   /* corrective data */
   .hidden{
     display: none;
+  }
+
+ span {
+  top: 0; /* Stay at the top */
+  float: right;
+  margin-right: 50px;
+  z-index: 999;
   }

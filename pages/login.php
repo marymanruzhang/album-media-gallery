@@ -1,6 +1,5 @@
 <?php
 $title = ': Login';
-$nav_plopbox_class = 'active_page';
 
 // query the database for the album records
 $result = exec_sql_query(

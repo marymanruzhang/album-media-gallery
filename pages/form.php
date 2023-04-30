@@ -1,6 +1,15 @@
 <?php
 $title = ': Upload Form';
-$nav_plopbox_class = 'active_page';
+
+$show_confirmation = False;
+
+if (isset($_POST['submit'])) {
+  $form_valid = True;
+}
+
+if ($form_valid) {
+  $show_confirmation = True;
+}
 
 // Access Control - Only logged in users may upload
 if (is_user_logged_in()) {
@@ -102,6 +111,15 @@ if (is_user_logged_in()) {
         $db,
         "INSERT INTO tags (genre) VALUES (:genre)",
         array(
+          ':genre' => $upload_tags_genre
+        )
+      );
+
+      $result3 = exec_sql_query(
+        $db,
+        "INSERT INTO album_tags (album_id, tags_id) VALUES ( (SELECT id FROM albums WHERE (name = :name)), (SELECT id FROM tags WHERE (genre = :genre) ));",
+        array(
+          ":name" => $upload_albums_name,
           ':genre' => $upload_tags_genre
         )
       );
