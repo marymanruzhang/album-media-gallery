@@ -22,6 +22,7 @@ if (is_user_logged_in()) {
   $upload_albums_artist = NULL;
   $upload_albums_year = NULL;
   $upload_tags_genre = NULL;
+  $upload_file_name = NULL;
 
   // Users must be logged in to upload files!
   if (isset($_POST["upload"])) {
@@ -46,13 +47,13 @@ if (is_user_logged_in()) {
       $upload_tags_genre = NULL;
     }
 
-    $upload_tags_name = trim($_POST['name']);
+    $upload_albums_name = trim($_POST['name']);
     if (empty($upload_albums_name)) {
       $upload_tags_name = NULL;
     }
 
     // get the info about the uploaded files.
-    $upload = $_FILES['file'];
+    $upload = $_FILES['file_name'];
 
     // Assume the form is valid...
     $form_valid = True;
@@ -62,10 +63,10 @@ if (is_user_logged_in()) {
       // The upload was successful!
 
       // Get the name of the uploaded file without any path
-      $upload_albums_name = basename($upload['name']);
+      $upload_file_name = basename($upload['name']);
 
       // Get the file extension of the uploaded file and convert to lowercase for consistency in DB
-      $upload_albums_ext = strtolower(pathinfo($upload_albums_name, PATHINFO_EXTENSION));
+      $upload_albums_ext = strtolower(pathinfo($upload_file_name, PATHINFO_EXTENSION));
 
       // This site only accepts SVG files!
       if (!in_array($upload_albums_ext, array('png', 'jpg', 'jpeg'))) {
@@ -182,15 +183,15 @@ if (is_user_logged_in()) {
             <?php } ?>
 
             <div class="label-input">
-              <label for="upload-file">Album Cover File:</label>
+              <label for="upload_file_name">Album Cover File:</label>
               <!-- This site only accepts PNG and JPG files! -->
-              <input id="upload-file" type="file" name="file" accept=".png, .jpg, .jpeg">
+              <input id="upload_file_name" type="file" name="file_name" accept=".png, .jpg, .jpeg">
 
             </div>
 
             <div class="label-input">
               <label for="upload_albums_name">Album Name:</label>
-              <input id='upload_albums_name' type="text" name="source" placeholder="Name of the Album">
+              <input id='upload_albums_name' type="text" name="name" placeholder="Name of the Album">
             </div>
 
             <div class="label-input">
@@ -213,11 +214,6 @@ if (is_user_logged_in()) {
               <input id='upload_tags_genre' type="text" name="genre" placeholder="Genre of Album">
             </div>
 
-          <!-- <p class="feedback <?php echo $form_feedback_classes['genre']; ?>">Please select a music genre.</p>
-          <div class="form-group label-input" role="group" aria-labelledby="genre_head">
-          <select name = "dropdown">
-            <option value = "genre" selected><?php echo htmlspecialchars($record['tags.genre']); ?></option>
-         </select> -->
 
             <div class="align-right">
               <button type="submit" name="upload">Upload</button>
