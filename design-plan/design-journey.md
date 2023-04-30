@@ -141,23 +141,23 @@ Cassie
 
 **Factors that Influence Behavior:**
 
-- Exposure to a wider audience
-- The search for more inspiring creators
+- Exposure to a wider collection
+- Easy to filter through genres
 
 **Goals:**
 
-- Showcase Cassie's works on album covers
-- Joining an interactive platform and sharing inspiration for other artist's
+- Find pretty album covers and make a collection for herself
+- Know what type of genres each album is
 
 **Obstacles:**
 
-- Difficulty in finding a platform to share Cassie's highlighted works besides from her individual sites/social media
-- Finding other artists that also design album covers and searching for inspiration
+- Hard to find a collection of cool album covers to look at for design reference and for fun
+- Hard to figure out what type of albums are what genre and if there is a pattern in the art
 
 **Desires:**
 
-- Able to easily insert Cassie's works into the catalog
-- For other people to be able to view Cassies's works and perhaps have contact information for those who are interested in her works
+- Able to find different references for album designs
+- Have a easy to see grid of albums wwith details about each album as well
 
 ### Catalog Data (Milestone 1)
 > Using your personas, identify the data you need to include in the catalog for your site's audiences.
@@ -165,16 +165,13 @@ Cassie
 
 Album Name
 Artist Name
-Album Cover Designer
 Album Year Released
-Album Genre
+Album Genres
 Album Cover Illustrations
-Description
-Designer Contact Information
-Insert Form
+Upload Form
 
 
-These are important data to help Cassie reach a wider audience and being able to leave their contact information. There is also an insert form for her to insert more of her works if she wants to share more recent works. The audience is also able to know which album for which singer she designed the cover for.
+These are important data to help Cassie to have a well-rounded background of each album for her own collection. Not only will she be able to see the visuals of the album cover but more details about each album.
 
 
 ### Site Design (Milestone 1)
@@ -190,14 +187,14 @@ These are important data to help Cassie reach a wider audience and being able to
 > **Refer to your persona by name in each explanation.**
 
  ![sketch](/design-plan/sketch.jpg)
-For the catalog home page, it is a matrix style catalog with thumbnails that lead to a details page with more information of the album cover thumbnail that was pressed by Jenny. Jenny can also filter the album covers by genre with the filter button.
+For the catalog home page, it is a matrix style catalog with thumbnails that lead to a details page with more information of the album cover thumbnail that was pressed by Cassie. Cassie can add entries by pressing the upload icon in the middle.
 
-Moreover, for Cassie, there is an insert form that can be accessed when logged in and found by pressing the hamburger menu.
+Moreover, for Jenny, she can filter the album covers by genre with the filter button.
 
 ### Catalog Design Patterns (Milestone 1)
 > Explain how you used design patterns in your site's design. (1-2 sentences)
 
-I used design patterns of alignment through the matrix of thumbnails. I also used responsivenes design through the hamburger menu.
+I used design patterns of alignment through the matrix of thumbnails. I also used responsivenes design through the filter button.
 
 ## Implementation Plan (Milestone 1, Milestone 2, Milestone 3, Final Submission)
 
@@ -251,31 +248,29 @@ CREATE TABLE tags (
 > Tell us what issues you discovered during your accessibility audit.
 > What do you do to improve the accessibility of your site?
 
-TODO: audit fixes
-
+I didn't have any audit issues this times. I struggled with remembering to check the contrast errors on each page in the previous project and I remembered to check through all the pages this time.
 
 ### Self-Reflection (Final Submission)
 > Reflect on what you learned during this assignment. How have you improved from Projects 1 and 2?
 
-TODO: reflection
+I think I have understand client-side programming and php a lot better compared to projects 1 and 2 just due to the share amount of new content needed to be absrobed and impelemented.
 
 
 > Take some time here to reflect on how much you've learned since you started this class. It's often easy to ignore our own progress. Take a moment and think about your accomplishments in this class. Hopefully you'll recognize that you've accomplished a lot and that you should be very proud of those accomplishments! (1-3 sentences)
 
-TODO: reflection
-
+I think I have learned so much in this class so far despite it being a struggle recently to keep up on the progress of the project because of all the projects in other classes that are simulatenously happening. I am proud to see what I made so far but I hope I can have more time to polish the website.
 
 ### Collaborators (Final Submission)
 > List any persons you collaborated with on this project.
 
-TODO: list your collaborators
+n/a
 
 
 ### Reference Resources (Final Submission)
 > Please cite any external resources you referenced in the creation of your project.
 > (i.e. W3Schools, StackOverflow, Mozilla, etc.)
 
-TODO: list reference resources
+w3schools for js code
 
 
 ### Grading: User Accounts (Final Submission)
@@ -284,15 +279,15 @@ TODO: list reference resources
 
 **Administrator User:**
 
-- Username: TODO: username
-- Password: TODO: password
+- Username: kyle
+- Password: monkey
 
-**Consumer User:**
+- Username: mary
+- Password: monkey
 
-- Username: TODO: username
-- Password: TODO: password
 
 **Note:** Not all websites will support consumer log in. If your website doesn't, say so.
+no consumer log in
 
 
 ### Grading: Step-by-Step Instructions (Final Submission)
@@ -303,25 +298,23 @@ TODO: list reference resources
 
 _View all entries:_
 
-1. TODO: instructions
-2.
+1. The first page the code brings you to
+2. This page can also be accessed by the first icon in the header that looks like a record disc
 
 _View all entries for a tag:_
 
-1. TODO: instructions
-2.
+1. there is a filter button in the header and a side menu will appear.
+2. you can filter by pressing any of those tags
 
 _View a single entry's details:_
 
-1. TODO: instructions
-2.
+1. You can click on the image in the grid to go to details
 
 _How to insert and upload a new entry:_
 
-1. TODO: instructions
-2.
+1. the second icon in the header is the upload form
+2. there is no confirmation message, page will refresh and you can go back to the home page to view it
 
 _How to delete an entry:_
 
-1. TODO: instructions
-2.
+1.

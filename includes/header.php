@@ -1,7 +1,7 @@
 <header>
   <h1 id="title">ALBUM COVERS<?php echo htmlspecialchars($title); ?></h1>
 
-  <nav id="menu">
+  <nav id="menu-2">
     <ul>
       <!-- icon from https://pngtree.com/so/cd-icons -->
       <li class="<?php echo $nav_home_class; ?>"><a href="/"><img src="../public/images/cd.png" alt="filter"></a></li>

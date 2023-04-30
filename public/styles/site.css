@@ -23,7 +23,7 @@ button {
   z-index: 1;
   top: 0;
   right: 0;
-  background-color: #111;
+  background-color: #06304e;
   overflow-x: hidden;
   padding-top: 60px;
   transition: 0.5s;
@@ -61,7 +61,7 @@ button {
 /* header */
 header {
   color: #ffcdca;
-  background-color: #06304e;
+  background-color: #06304eef;
   /* padding: 1px 0 30px 0; */
     position: fixed;
     top: 0px;
@@ -92,7 +92,7 @@ header #title {
   padding-bottom: 20px;
 
   text-align: center;
-  padding-left: 250px;
+  padding-left: 75px;
   list-style: none;
 }
 
@@ -112,8 +112,34 @@ header #title {
   color:#ffcdca;;
 }
 
-#menu a:hover {
+#menu-2 a:hover {
   color: #ffcdca;;
+}
+
+#menu-2 {
+  display: inline;
+}
+
+#menu-2 ul {
+  margin-top: -75px;
+  padding-bottom: 20px;
+
+  text-align: center;
+  padding-left: 75px;
+  list-style: none;
+}
+
+#menu-2 li {
+  margin: 0;
+  display: inline-block;
+  text-decoration: none;
+  float: right;
+  padding-right: 40px;
+}
+
+#menu-2 li img {
+  width: 35px;
+  height: 35px;
 }
 
 
@@ -142,7 +168,7 @@ main.entry {
 main.entry .gallery ul {
     display: grid;
     grid-template-columns: repeat( auto-fit, 350px);
-    /* justify-content: space-around; */
+    justify-content: space-around;
     list-style: none;
     padding: 10px;
     align-items: center;
@@ -153,6 +179,7 @@ main.entry .gallery ul {
     margin: 20px;
     align-items: center;
     justify-content: center;
+    margin-left: -20px;
   }
 
   main.entry .entry li>a {
