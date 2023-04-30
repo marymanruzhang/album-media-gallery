@@ -1,5 +1,5 @@
 <?php
-$title = 'Album Cover Upload Form';
+$title = ': Upload Form';
 $nav_plopbox_class = 'active_page';
 
 // Access Control - Only logged in users may upload
@@ -31,6 +31,26 @@ if (is_user_logged_in()) {
       $upload_albums_source = NULL;
     }
 
+    $upload_albums_artist = trim($_POST['artist']);
+    if (empty($upload_albums_artist)) {
+      $upload_albums_artist = NULL;
+    }
+
+    $upload_albums_year = trim($_POST['year']);
+    if (empty($upload_albums_year)) {
+      $upload_albums_year = NULL;
+    }
+
+    $upload_tags_genre = trim($_POST['genre']);
+    if (empty($upload_tags_genre)) {
+      $upload_tags_genre = NULL;
+    }
+
+    $upload_tags_name = trim($_POST['name']);
+    if (empty($upload_albums_name)) {
+      $upload_tags_name = NULL;
+    }
+
     // get the info about the uploaded files.
     $upload = $_FILES['file'];
 
@@ -43,9 +63,6 @@ if (is_user_logged_in()) {
 
       // Get the name of the uploaded file without any path
       $upload_albums_name = basename($upload['name']);
-      // $upload_albums_artist = basename($upload['artist']);
-      // $upload_albums_year = basename($upload['year']);
-      // $upload_tags_genre = basename($upload['genre']);
 
       // Get the file extension of the uploaded file and convert to lowercase for consistency in DB
       $upload_albums_ext = strtolower(pathinfo($upload_albums_name, PATHINFO_EXTENSION));
@@ -70,23 +87,26 @@ if (is_user_logged_in()) {
       // insert upload into DB
       $result = exec_sql_query(
         $db,
-        "INSERT INTO albums (name, artist, year, source, ext) VALUES (:name, :artist, :year, :source, :ext);
-        INSERT INTO tags (genre) VALUES (:genre);",
+        "INSERT INTO albums (name, artist, year, source, ext) VALUES (:name, :artist, :year, :source, :ext)",
         array(
           ':name' => $upload_albums_name,
           ':artist' => $upload_albums_artist,
           ':year' => $upload_albums_year,
           ':source' => $upload_albums_source,
-          ':ext' => $upload_albums_ext,
+          ':ext' => $upload_albums_ext
+        )
+      );
+
+      $result2 = exec_sql_query(
+        $db,
+        "INSERT INTO tags (genre) VALUES (:genre)",
+        array(
           ':genre' => $upload_tags_genre
         )
       );
 
 
-      if ($result) {
-        // We successfully inserted the record into the database, now we need to
-        // move the uploaded file to it's final resting place: public/uploads directory
-
+      if ($result && $result2) {
         // get the newly inserted record's id
         $record_id = $db->lastInsertId('id');
 
@@ -95,7 +115,7 @@ if (is_user_logged_in()) {
         //       Do NOT include / at the beginning of the path; path should be a relative path.
         //          NO: /public/...
         //         YES: public/...
-        $upload_storage_path = 'public/uploads/covers/' . $record_id . '.' . $upload_albums_ext;
+        $upload_storage_path = 'public/uploads/albums/' . $record_id . '.' . $upload_albums_ext;
 
         // Move the file to the public/uploads/clipart folder
         // Note: THIS FUNCTION REQUIRES A PATH. NOT A URL!
@@ -107,15 +127,18 @@ if (is_user_logged_in()) {
   }
 }
 
-// query the database for the album records
-$result = exec_sql_query(
-    $db,
-    "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
+// // query the database for the album records
+// $result = exec_sql_query(
+//     $db,
+//     "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
 
-    FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
-    INNER JOIN tags ON (album_tags.tags_id = tags.id) ORDER BY name ASC;"
-  );
-  $records = $result->fetchAll();
+//     FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
+//     INNER JOIN tags ON (album_tags.tags_id = tags.id) ORDER BY name ASC;"
+//   );
+//   $records = $result->fetchAll();
+
+//     // Merge the two arrays
+//     // $records = array_merge($records, $records2);
 ?>
 
 <!DOCTYPE html>
@@ -135,7 +158,7 @@ $result = exec_sql_query(
   <main class="form">
 
     <section class="upload-form">
-      <h2><?php echo $title; ?></h2>
+      <h2>Add an Album Cover Entry!</h2>
     <section class="upload" id="upload">
 
       <?php
