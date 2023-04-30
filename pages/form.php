@@ -1,16 +1,6 @@
 <?php
 $title = ': Upload Form';
 
-$show_confirmation = False;
-
-if (isset($_POST['submit'])) {
-  $form_valid = True;
-}
-
-if ($form_valid) {
-  $show_confirmation = True;
-}
-
 // Access Control - Only logged in users may upload
 if (is_user_logged_in()) {
 
@@ -124,7 +114,7 @@ if (is_user_logged_in()) {
 
       $result3 = exec_sql_query(
         $db,
-        "INSERT INTO album_tags (album_id, tags_id) VALUES ( (SELECT id FROM albums WHERE (name = :name)), (SELECT id FROM tags WHERE (genre1 = :genre1, genre2 = :genre2) ));",
+        "INSERT INTO album_tags (album_id, tags_id) VALUES ( (SELECT id FROM albums WHERE (name = :name)), (SELECT id FROM tags WHERE (genre1 = :genre1 AND genre2 = :genre2) ));",
         array(
           ":name" => $upload_albums_name,
           ':genre1' => $upload_tags_genre1,
@@ -154,18 +144,6 @@ if (is_user_logged_in()) {
   }
 }
 
-// // query the database for the album records
-// $result = exec_sql_query(
-//     $db,
-//     "SELECT albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
-
-//     FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
-//     INNER JOIN tags ON (album_tags.tags_id = tags.id) ORDER BY name ASC;"
-//   );
-//   $records = $result->fetchAll();
-
-//     // Merge the two arrays
-//     // $records = array_merge($records, $records2);
 ?>
 
 <!DOCTYPE html>
@@ -191,7 +169,6 @@ if (is_user_logged_in()) {
       <?php
       // Access Controls - Interface: Only logged in users may upload
       if (is_user_logged_in()) { ?>
-        <?php if(!$show_confirmation) { ?>
           <h2>Please feel free to add your album entry!</h2>
 
           <form action="/form" method="post" enctype="multipart/form-data">
@@ -250,15 +227,6 @@ if (is_user_logged_in()) {
               <button type="submit" name="upload">Upload</button>
             </div>
             </form>
-          <?php } else { ?>
-
-            <!-- Show the form or the confirmation message. -->
-              <section>
-                <h2>Thanks for your entry!</h2>
-
-                <p><a href="/">Go View your Entry in our Display</a> or submit another entry <a href="/form"></p>
-              </section>
-          <?php } ?>
 
       <?php } else {
         // user is not logged in. show login form

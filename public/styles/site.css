@@ -11,26 +11,25 @@
 button {
   border: none;
   background: none;
+  color: white;
 }
-
 
 
 /* The filter for tags */
-/* The side navigation menu */
 .side {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
   right: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
 }
 
-/* The navigation menu links */
+
 .side a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -247,8 +246,13 @@ main.entry .gallery ul {
     text-align: right;
     padding-right: 7%;
     padding-top: 8%;
+    color: white;
   }
 
+  button .align-right {
+    border: white;
+    background: white;
+  }
   /* corrective data */
   .hidden{
     display: none;
@@ -259,4 +263,37 @@ main.entry .gallery ul {
   float: right;
   margin-right: 50px;
   z-index: 999;
+  }
+
+  .login-form {
+    width: 30%;
+    margin-left: 10%;
+    margin-top: 2%;
+
+    background-color: rgba(255, 199, 199, 0.433);
+    padding: 2%;
+    padding-bottom: 3%;
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+    border-bottom-right-radius: 4%;
+    border-bottom-left-radius: 4%;
+  }
+
+  .details {
+    display: block;
+    text-align: center;
+    width: 30%;
+    margin: auto;
+
+    background-color: rgba(255, 199, 199, 0.433);
+    padding-top: 5%;
+    padding-right: 10%;
+    padding-left: 10%;
+    padding-bottom: 5%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    border-top-left-radius: 4%;
+    border-top-right-radius: 4%;
+    border-bottom-right-radius: 4%;
+    border-bottom-left-radius: 4%;
   }

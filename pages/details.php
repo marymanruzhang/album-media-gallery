@@ -109,13 +109,10 @@ $title = ': More Details';
             <p>Your album cover selection is <em>empty</em>. Try uploading some album covers.</p>
           <?php } ?>
 
+          <p>Return to the full <a href="/">album display</a>.</p>
         </section>
     </main>
     </div>
-      <p></p>
-
-      <p>Return to the full <a href="/">album display</a>.</p>
-
 
       <?php } ?>
 
