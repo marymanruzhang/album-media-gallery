@@ -4,11 +4,12 @@
     $tag = $_GET['tag'];
     $result = exec_sql_query(
       $db,
-      "SELECT albums.name AS 'albums.name', albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
+      "SELECT albums.name AS 'albums.name', albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre1 AS 'tags.genre1', tags.genre2 AS 'tags.genre2'
       FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
       INNER JOIN tags ON (album_tags.tags_id = tags.id)
-      WHERE tags.genre = :tag;",
+      WHERE tags.genre1 = :tag OR tags.genre2 = :tag;",
       array(':tag' => $tag)
+
     );
   } else {
     $result = exec_sql_query(
@@ -41,7 +42,7 @@
   <div id = "filter" class="side">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
     <?php
-      $tags = exec_sql_query($db, "SELECT DISTINCT genre FROM tags")->fetchAll(PDO::FETCH_COLUMN);
+      $tags = exec_sql_query($db, "SELECT DISTINCT genre1, genre2 FROM tags")->fetchAll(PDO::FETCH_COLUMN);
       foreach ($tags as $tag) {
         echo "<a href='?tag=".htmlspecialchars($tag)."'>".htmlspecialchars($tag)."</a> ";
       }
@@ -68,11 +69,6 @@
                   </button>
                     <!-- </button> -->
               </form>
-                <!-- <div class="entry-tags-genre">
-                  <?php echo htmlspecialchars($record['tags.genre']); ?>
-                </div>
-              </div>
-              <p class="entry-albums-artist"><?php echo htmlspecialchars($record['albums.artist']); ?></p> -->
               </li>
               <?php
               } ?>

@@ -12,7 +12,7 @@ $title = ': More Details';
       if ($record_id != NULL) {
         $records = exec_sql_query(
           $db,
-          "SELECT albums.id AS 'albums.id', albums.name AS 'albums.name',albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
+          "SELECT albums.id AS 'albums.id', albums.name AS 'albums.name',albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre1 AS 'tags.genre1', tags.genre2 AS 'tags.genre2'
 
           FROM album_tags JOIN tags ON (album_tags.tags_id = tags.id)
           JOIN albums ON (album_tags.album_id = albums.id) WHERE (album_id = :id);",
@@ -57,14 +57,12 @@ $title = ': More Details';
               <?php
               $albums_result = exec_sql_query(
                 $db,
-                "SELECT albums.id AS 'albums.id', albums.name AS 'albums.name', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre AS 'tags.genre'
+                "SELECT albums.name AS 'albums.name', albums.id AS 'albums.id', albums.artist AS 'albums.artist', albums.year AS 'albums.year', tags.genre1 AS 'tags.genre1', tags.genre2 AS 'tags.genre2'
+                FROM album_tags INNER JOIN albums ON (album_tags.album_id = albums.id)
+                INNER JOIN tags ON (album_tags.tags_id = tags.id)
+                WHERE tags.genre1 = :tag OR tags.genre2 = :tag;",
+                array(':tag' => $tag)
 
-                FROM album_tags JOIN tags ON (album_tags.tags_id = tags.id)
-                JOIN albums ON (album_tags.album_id = albums.id) WHERE (album_id = :id);",
-
-                array(
-                  ':id' => $get_id
-                )
               );
 
               $albums_records = $albums_result->fetchAll()[0];
@@ -78,7 +76,7 @@ $title = ': More Details';
 
       <p>Album Artist: <?php echo htmlspecialchars($record['albums.artist']); ?></p>
 
-      <p>Album Genre: <?php echo htmlspecialchars($record['tags.genre']); ?></p>
+      <p>Album Genre: <?php echo htmlspecialchars($record['tags.genre1']); ?>   <?php echo htmlspecialchars($record['tags.genre2']); ?></p>
 
       <p>Year Released: <?php echo htmlspecialchars($record['albums.year']); ?><p>
     </div>

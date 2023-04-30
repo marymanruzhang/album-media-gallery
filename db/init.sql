@@ -140,70 +140,71 @@ VALUES
 
 -- Genre tags (all the different genres) --
 CREATE TABLE tags (
-    id INTEGER NOT NULL UNIQUE,
-    genre TEXT NOT NULL,
+    id INTEGER NOT NULL,
+    genre1 TEXT NOT NULL,
+    genre2 TEXT,
     PRIMARY KEY(id AUTOINCREMENT)
 );
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (1, 'K-Ballad');
+    (1, 'K-Ballad', 'K-Pop');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (2, 'Pop');
+    (2, 'Pop', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (3, 'Pop');
+    (3, 'Pop', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (4, 'Pop');
+    (4, 'Pop', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (5, 'K-Pop');
+    (5, 'K-Pop', 'Pop');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (6, 'K-Pop');
+    (6, 'K-Pop', 'Pop');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (7, 'Alternative Rock');
+    (7, 'Alternative Rock', 'Pop');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (8, 'Pop');
+    (8, 'Pop', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (9, 'Pop');
+    (9, 'Pop', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (10, 'R&B');
+    (10, 'R&B', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (11, 'Pop');
+    (11, 'Pop', '');
 
 INSERT INTO
-    tags (id, genre)
+    tags (id, genre1, genre2)
 VALUES
-    (12, 'Hip Hop');
+    (12, 'Hip Hop', 'Pop');
 
 --- Users ---
 CREATE TABLE users (

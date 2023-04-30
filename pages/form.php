@@ -30,7 +30,8 @@ if (is_user_logged_in()) {
   $upload_albums_name = NULL;
   $upload_albums_artist = NULL;
   $upload_albums_year = NULL;
-  $upload_tags_genre = NULL;
+  $upload_tags_genre1 = NULL;
+  $upload_tags_genre2 = NULL;
   $upload_file_name = NULL;
 
   // Users must be logged in to upload files!
@@ -51,9 +52,14 @@ if (is_user_logged_in()) {
       $upload_albums_year = NULL;
     }
 
-    $upload_tags_genre = trim($_POST['genre']);
-    if (empty($upload_tags_genre)) {
-      $upload_tags_genre = NULL;
+    $upload_tags_genre1 = trim($_POST['genre1']);
+    if (empty($upload_tags_genre1)) {
+      $upload_tags_genre1 = NULL;
+    }
+
+    $upload_tags_genre2 = trim($_POST['genre2']);
+    if (empty($upload_tags_genre2)) {
+      $upload_tags_genre2 = NULL;
     }
 
     $upload_albums_name = trim($_POST['name']);
@@ -109,18 +115,20 @@ if (is_user_logged_in()) {
 
       $result2 = exec_sql_query(
         $db,
-        "INSERT INTO tags (genre) VALUES (:genre)",
+        "INSERT INTO tags (genre1, genre2) VALUES (:genre1, :genre2)",
         array(
-          ':genre' => $upload_tags_genre
+          ':genre1' => $upload_tags_genre1,
+          ':genre2' => $upload_tags_genre2
         )
       );
 
       $result3 = exec_sql_query(
         $db,
-        "INSERT INTO album_tags (album_id, tags_id) VALUES ( (SELECT id FROM albums WHERE (name = :name)), (SELECT id FROM tags WHERE (genre = :genre) ));",
+        "INSERT INTO album_tags (album_id, tags_id) VALUES ( (SELECT id FROM albums WHERE (name = :name)), (SELECT id FROM tags WHERE (genre1 = :genre1, genre2 = :genre2) ));",
         array(
           ":name" => $upload_albums_name,
-          ':genre' => $upload_tags_genre
+          ':genre1' => $upload_tags_genre1,
+          ':genre2' => $upload_tags_genre2
         )
       );
 
@@ -228,8 +236,13 @@ if (is_user_logged_in()) {
             </div>
 
             <div class="label-input">
-              <label for="upload_tags_genre">Genre</label>
-              <input id='upload_tags_genre' type="text" name="genre" placeholder="Genre of Album">
+              <label for="upload_tags_genre1">Genre 1</label>
+              <input id='upload_tags_genre1' type="text" name="genre1" placeholder="Genre of Album">
+            </div>
+
+            <div class="label-input">
+              <label for="upload_tags_genre2">Genre 2</label>
+              <input id='upload_tags_genre2' type="text" name="genre2" placeholder="Genre of Album">
             </div>
 
 
