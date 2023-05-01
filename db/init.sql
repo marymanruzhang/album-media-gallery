@@ -142,7 +142,7 @@ VALUES
 CREATE TABLE tags (
     id INTEGER NOT NULL,
     genre1 TEXT NOT NULL,
-    genre2 TEXT,
+    genre2 TEXT NOT NULL,
     PRIMARY KEY(id AUTOINCREMENT)
 );
 

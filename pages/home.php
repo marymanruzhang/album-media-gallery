@@ -27,7 +27,7 @@
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title><?php echo $title; ?> - INFO 2300</title>
+  <title>Album Cover</title>
 
   <link rel="stylesheet" type="text/css" href="/public/styles/site.css" media="all">
 </head>

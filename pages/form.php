@@ -54,7 +54,7 @@ if (is_user_logged_in()) {
 
     $upload_albums_name = trim($_POST['name']);
     if (empty($upload_albums_name)) {
-      $upload_tags_name = NULL;
+      $upload_albums_name = NULL;
     }
 
     // get the info about the uploaded files.
@@ -74,7 +74,7 @@ if (is_user_logged_in()) {
       $upload_albums_ext = strtolower(pathinfo($upload_file_name, PATHINFO_EXTENSION));
 
       // This site only accepts SVG files!
-      if (!in_array($upload_albums_ext, array('png', 'jpg', 'jpeg'))) {
+      if (!in_array($upload_albums_ext, array('png'))) {
         $form_valid = False;
         $upload_feedback['general_error'] = True;
       }
@@ -169,7 +169,8 @@ if (is_user_logged_in()) {
       <?php
       // Access Controls - Interface: Only logged in users may upload
       if (is_user_logged_in()) { ?>
-          <h2>Please feel free to add your album entry!</h2>
+          <h3>Please feel free to add your album entry!</h3>
+          <p>You must fill in all entries of the form! For the secondary genre, please put the second closest category of music for the album.</p>
 
           <form action="/form" method="post" enctype="multipart/form-data">
 
@@ -187,8 +188,8 @@ if (is_user_logged_in()) {
 
             <div class="label-input">
               <label for="upload_file_name">Album Cover File:</label>
-              <!-- This site only accepts PNG and JPG files! -->
-              <input id="upload_file_name" type="file" name="file_name" accept=".png, .jpg, .jpeg">
+              <!-- This site only accepts PNG files! -->
+              <input id="upload_file_name" type="file" name="file_name" accept=".png">
 
             </div>
 

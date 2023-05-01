@@ -4,8 +4,8 @@
   <nav id="menu">
     <ul>
       <!-- icon from https://pngtree.com/so/cd-icons -->
-      <li class="<?php echo $nav_home_class; ?>"><a href="/"><img src="../public/images/cd.png" alt="filter"></a></li>
-      <li class="<?php echo $nav_citations_class; ?>"><a href="/form"><img src="../public/images/upload.png" alt="filter"></a></li>
+      <li class="home-header"><a href="/"><img src="../public/images/cd.png" alt="filter"></a></li>
+      <li class="form-header"><a href="/form"><img src="../public/images/upload.png" alt="filter"></a></li>
 
 
     <!-- Sign Out -->
